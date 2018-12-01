@@ -1,0 +1,155 @@
+﻿@{
+    ViewData["Title"] = "Day One";
+}
+<h2>Agenda:</h2>
+<div id="wrapper">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Topic</th>
+                <th>Facilitator</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="greyout">
+                <td>11:45 AM - 12:00 PM</td>
+                <td><span class="boldtext">Lunch!!</span></td>
+                <td>Ryan</td>
+            </tr>
+            <tr>
+                <td>12:00 PM - 1:15 PM</td>
+                <td><span class="boldtext">Introductions & Ice Breakers</span></td>
+                <td>Robert & Mehdi</td>
+            </tr>
+            <tr>
+                <td>1:15 PM - 1:45 PM</td>
+                <td><span class="boldtext">Keynote Address, Vijay CIO</span></td>
+                <td>Ryan</td>
+            <tr>
+                <td>1:45 PM - 2:45 PM</td>
+                <td colspan="2"><span class="boldtext">App Demos by Business Unit:</span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span class="indcol">QuickMail (Institutional)</span></td>
+                <td>Mehdi</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span class="indcol">TDA Empowerment (Retail)</span></td>
+                <td>Jesse</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span class="indcol">Brok Ops</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span class="indcol">Risk</span></td>
+                <td></td>
+            </tr>
+            <tr class="greyout">
+                <td>2:45 PM - 2:55 PM</td>
+                <td><span class="boldtext">Break!!</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2:55 PM - 3:55 PM</td>
+                <td colspan="2"><span class="boldtext">Component Demos</span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span class="indcol">Reactive Forms</span></td>
+                <td>Jesse</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span class="indcol">Google Services</span></td>
+                <td>Jeff</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span class="indcol">BOS InnerOp</span></td>
+                <td>Ryan</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span class="indcol">A2C InnerOp</span></td>
+                <td>Robert</td>
+            </tr>
+            <tr class="greyout">
+                <td>3:55 PM - 4:05 PM</td>
+                <td><span class="boldtext">Break!!</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4:05 PM - 4:35 PM</td>
+                <td><span class="boldtext">RDI Infastructure & Road Map</span></td>
+                <td>Ben</td>
+            </tr>
+            <tr>
+                <td>4:35 PM - 5:05 PM</td>
+                <td><span class="boldtext">Dev Up Conference Takeaways</span></td>
+                <td>Jesse, Jeff, Kevin</td>
+            </tr>
+            <tr class="greyout">
+                <td>5:05 PM</td>
+                <td><span class="boldtext">Wrap Day 1 & Head to Dave N Busters</span></td>
+                <td>Ryan</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h2>Directions to Dave & Busters:</h2>
+<div id="map"></div>
+
+@*<script>
+    // Initialize and add the map
+    function initMap() {
+        // The locations
+        var hq = { lat: 41.259997, lng: -96.083026 };
+        var db = { lat: 41.236424, lng: -96.122935 };
+        var bw = { lat: 41.265527, lng: -96.089499 };
+        // The map, centered at hq
+        var map = new google.maps.Map(
+            document.getElementById('map'), { zoom: 12, center: hq });
+        // The markers
+        var marker = new google.maps.Marker({ position: hq, title: "Ameritrade HQ", map: map });
+        var marker = new google.maps.Marker({ position: db, title: "Dave and Busters", map: map });
+        var marker = new google.maps.Marker({ position: bw, title: "Bushwoods", map: map });
+    }
+</script>*@
+
+<script>
+        // Initialize and add the map
+        function initMap() {
+            //set up direction services
+            var directionsService = new google.maps.DirectionsService;
+            var directionsDisplay = new google.maps.DirectionsRenderer;
+            var trafficLayer = new google.maps.TrafficLayer();
+            var hq = { lat: 41.259997, lng: -96.083026 };
+            // The map, centered at HQ
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 12, center: hq });
+            //do the directions
+            directionsService.route({
+                origin: "200 S 108th Ave Omaha, NE 68154",
+                destination: "2502 S 133rd Plaza #111 Omaha, NE 68144",
+                travelMode: 'DRIVING'
+            }, function (response, status) {
+                if (status === 'OK') {
+                    directionsDisplay.setDirections(response);
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
+            directionsDisplay.setMap(map);
+            trafficLayer.setMap(map);
+        }
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=[your api key here]&callback=initMap">
+</script>

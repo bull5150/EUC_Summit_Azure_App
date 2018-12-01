@@ -1,0 +1,78 @@
+body{padding-top:50px;padding-bottom:20px}.body-content{padding-left:15px;padding-right:15px}.carousel-caption p{font-size:20px;line-height:1.4}.carousel-inner .item img[src$=".svg"]{width:100%}#qrCode{margin:15px}
+/* User added css*/
+.boldtext {
+    font-weight: bold;
+}
+.greyout {
+    background-color: #CCC !important;
+}
+.indcol {
+    margin-left: 7px;
+    color: #a733ee;
+}
+h2 {
+    color: #333;
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 1px 1px #a733ee;
+}
+#container {
+    background-image: url("../images/background_two.jpg");
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+#wrapper {
+    background-color: #F9F9F9;
+    opacity: .9;
+}
+footer {
+    color: #9d9d9d;
+    border-top: 2px solid #fff;
+    text-align: center;
+    background-color: #222;
+    height: 100px;
+    padding-top: 25px;
+}
+thead {
+    background-color: #a733ee;
+    color: #fff;
+}
+#map {
+    height: 600px;
+    width: 100%;
+}
+body {
+    padding-bottom: 0px;
+}
+#linkwrapper {
+    background-color: #fff;
+    opacity: .9;
+    padding: 15px;
+}
+h3 {
+    font-weight: bold;
+}
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 1200px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none !important;
+    }
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+    .navbar-collapse.collapse.in {
+        display: block !important;
+    }
+    .navbar-header .collapse, .navbar-toggle {
+        display: block !important;
+    }
+    .navbar-header {
+        float: none;
+    }
+    body {
+        font-size: 2.5em;
+    }
+}
